@@ -1,8 +1,51 @@
+/* Set Up */
+html,
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
+  padding: 0;
+  margin: 0;
+  background: #fdfdfd; }
 
-a {
-  color: #00B7FF; }
+html {
+  height: 100%; }
+
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100vh; }
+
+/* Nav Styling */
+nav {
+  background: #008148; }
+
+/* Main Styling */
+main {
+  flex: 1 0 auto;
+  padding: 20px 40px; }
+
+/* Footer Styling */
+footer {
+  color: #fdfdfd;
+  background: #008148;
+  flex-shrink: 0;
+  padding: 20px;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center; }
+  footer p {
+    margin: 0; }
+  footer a {
+    color: #fdfdfd;
+    text-decoration: none; }
+  footer .footer-ul {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    list-style: none; }
+    footer .footer-ul li {
+      margin: 5px; }
 
 /*# sourceMappingURL=style.css.map */
