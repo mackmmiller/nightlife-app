@@ -13,14 +13,41 @@ body {
   flex-direction: column;
   height: 100vh; }
 
-/* Nav Styling */
-nav {
-  background: #008148; }
+/* Link styles */
+a {
+  color: #fdfdfd;
+  text-decoration: none; }
+  a:hover {
+    text-decoration: underline;
+    color: #034732; }
 
 /* Main Styling */
 main {
   flex: 1 0 auto;
   padding: 20px 40px; }
+
+.businesses-ul {
+  list-style: none; }
+  .businesses-ul li {
+    display: flex;
+    align-items: center; }
+    .businesses-ul li .business {
+      font-size: 20px;
+      margin-right: 20px; }
+    .businesses-ul li .description {
+      margin-right: auto; }
+
+/* Nav Styling */
+nav {
+  background: #008148;
+  padding: 0 10px; }
+  nav .nav-ul {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-end;
+    list-style: none; }
+    nav .nav-ul .nav-item {
+      padding: 10px 16px; }
 
 /* Footer Styling */
 footer {
@@ -34,9 +61,6 @@ footer {
   justify-content: center; }
   footer p {
     margin: 0; }
-  footer a {
-    color: #fdfdfd;
-    text-decoration: none; }
   footer .footer-ul {
     padding: 0;
     margin: 0;
@@ -47,5 +71,37 @@ footer {
     list-style: none; }
     footer .footer-ul li {
       margin: 5px; }
+
+/* Registration/Login Page Styling */
+.user-form {
+  display: flex;
+  flex-flow: column nowrap;
+  width: 40%;
+  margin: auto; }
+
+.form-group {
+  padding: 10px;
+  display: flex;
+  flex-flow: column nowrap; }
+
+.submit-form {
+  width: 50%;
+  margin: auto; }
+
+.center {
+  text-align: center; }
+
+.auth-options {
+  padding: 0;
+  list-style: none;
+  width: 50%;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  border: 1px solid black; }
+  .auth-options li {
+    justify-content: center;
+    text-align: center;
+    padding: 10px 16px; }
 
 /*# sourceMappingURL=style.css.map */

@@ -24,15 +24,50 @@ body {
   height: 100vh;
 }
 
-/* Nav Styling */
-nav {
-  background: $light-green;
+/* Link styles */
+a {
+  color: $white;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+    color: $dark-green;
+  }
 }
 
 /* Main Styling */
 main {
   flex: 1 0 auto;
   padding: 20px 40px;
+}
+
+.businesses-ul {
+  list-style: none;
+  li {
+    display: flex;
+    align-items: center;
+    .business {
+      font-size: 20px;
+      margin-right: 20px;
+    }
+    .description {
+      margin-right: auto;
+    }
+  }
+}
+
+/* Nav Styling */
+nav {
+  background: $light-green;
+  padding: 0 10px;
+  .nav-ul {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-end;
+    list-style: none;
+    .nav-item {
+      padding: 10px 16px;
+    }
+  }
 }
 
 /* Footer Styling */
@@ -48,10 +83,6 @@ footer {
   p {
     margin: 0;
   }
-  a {
-    color: $white;
-    text-decoration: none;
-  }
   .footer-ul {
     padding: 0;
     margin: 0;
@@ -65,3 +96,5 @@ footer {
     }
   }
 }
+
+@import "register-login";

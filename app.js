@@ -19,7 +19,7 @@ var configDB = require("./config/database.js");
 mongoose.connect(configDB.url, {
   useMongoClient: true,
   user: configDB.user,
-  pass: configDB.password
+  pass: configDB.pass
 });
 mongoose.Promise = global.Promise;
 var db = mongoose.connection;
@@ -56,6 +56,12 @@ app.use(
 app.use(compression());
 app.use(express.static(path.join(__dirname, "public")));
 
+// Required for Passport
+app.use(session({ secret: "scrubs", resave: false, saveUninitialized: true }));
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(flash());
+
 app.use("/", index);
 app.use("/users", users);
 
@@ -69,6 +75,7 @@ app.use(function(req, res, next) {
 // error handler
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development
+  console.log(err);
   res.locals.message = err.message;
   res.locals.error = req.app.get("env") === "development" ? err : {};
 

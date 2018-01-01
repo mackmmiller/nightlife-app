@@ -1,0 +1,24 @@
+extends layout
+
+block content
+    main
+        h1.center Register for Nightout
+        if (message.length > 0)
+            div #{message}
+        form.user-form(method="post" action="")
+            .form-group
+                label(for="name") Username
+                input(name="username" type="text" placeholder="John Belushi")
+            .form-group
+                label(for="password") Password
+                input(name="password" type="password"  placeholder="reallyToughPassword1")
+            .form-group
+                label(for="password2") Confirm Password
+                input(name="password2" type="password" placeholder="reallyToughPassword1")
+            input.submit-form(name="submit" type="submit")
+        h2.center Or sign in using one of the following:
+        ul.auth-options
+            li.auth-1 Google
+            li.auth-2 Twitter
+            li.auth-3 Facebook
+

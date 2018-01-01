@@ -1,0 +1,16 @@
+extends layout
+
+block content
+    main
+        h1 Showing results for #{location}
+        ul.businesses-ul
+            each business in businesses
+                li 
+                    h2.business #{business.name}:
+                    p.description Description blah blah blah blah
+                    button 0 Going
+                hr
+            else
+                li No business were found near your location.
+block script    
+    script(type='text/javascript' src='javascripts/results.js')

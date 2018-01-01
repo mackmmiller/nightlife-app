@@ -2,5 +2,8 @@ extends layout
 
 block content
   main
-    input(type="text" placeholder="Enter your location")
-    input(type="submit")
+    h1.center Nightout
+    h2.center Find out who's going where tonight
+    form.search-bar.center(method='POST' action='')
+      input(type="text" placeholder="Enter your location" name='location')
+      input(type="submit")

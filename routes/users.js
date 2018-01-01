@@ -13,7 +13,7 @@ router.get("/", function(req, res, next) {
 router.get("/register", userController.get_register);
 
 /* POST signup page. */
-router.get("/register", userController.post_register);
+router.post("/register", userController.post_register);
 
 /* GET login page. */
 router.get("/login", userController.get_login);
@@ -23,6 +23,9 @@ router.post("/login", userController.post_login);
 
 /* GET logout */
 router.get("/logout", userController.get_logout);
+
+/* GET profile page. */
+router.get("/profile", isLoggedIn, userController.get_profile);
 
 function isLoggedIn(req, res, next) {
   if (req.isAuthenticated()) return next();

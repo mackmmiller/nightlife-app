@@ -1,0 +1,18 @@
+extends layout
+
+block content
+    main
+        h1.center Login to Nightout
+        form.user-form(action="" method="POST")
+            .form-group
+                label(for="name") Name
+                input(type="text" name="name" placeholder="John Belushi")
+            .form-group
+                label(for="password") Password
+                input(type="password" name="password" placeholder="reallyToughPassword1")
+            input.submit-form(type="submit")
+        h2.center Or sign in using one of the following:
+        ul.auth-options
+            li.auth-1 Google
+            li.auth-2 Twitter
+            li.auth-3 Facebook
