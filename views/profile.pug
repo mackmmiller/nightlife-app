@@ -2,4 +2,12 @@ extends layout
 
 block content
     main
-        h1 Hi
+        h1 Hi #{user}
+        h2 Your friends going out tonight:
+        ul.friends-ul
+            each friend in friends
+                li
+                    h3 #{friend.name}
+                    p #{friend.attending}
+            else
+                li You have no friends going out tonight.

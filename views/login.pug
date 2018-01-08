@@ -3,10 +3,12 @@ extends layout
 block content
     main
         h1.center Login to Nightout
+        if (message.length > 0)
+            div #{message}
         form.user-form(action="" method="POST")
             .form-group
-                label(for="name") Name
-                input(type="text" name="name" placeholder="John Belushi")
+                label(for="email") Email
+                input(type="text" name="email" placeholder="john@belushi.com")
             .form-group
                 label(for="password") Password
                 input(type="password" name="password" placeholder="reallyToughPassword1")

@@ -13,24 +13,34 @@ exports.get_register = function(req, res, next) {
   });
 };
 
-exports.post_register = function(req, res, next) {
-  res.send("NOT IMPLEMENTED: POST USER REGISTRATION");
-};
+exports.post_register = passport.authenticate("local-signup", {
+  successRedirect: "profile",
+  failureRedirect: "register",
+  failureFlash: true
+});
 
 exports.get_login = function(req, res) {
-  res.render("login");
+  res.render("login", {
+    title: "Login | Nightout",
+    message: req.flash("loginMessage")
+  });
 };
 
-exports.post_login = function(req, res) {
-  res.send("NOT IMPLEMENTED: POST USER LOGIN PAGE");
-};
+exports.post_login = passport.authenticate("local-login", {
+  successRedirect: "profile",
+  failureRedirect: "login",
+  failureFlash: true
+});
 
 exports.get_profile = function(req, res) {
-  res.render("profile.pug");
+  res.render("profile.pug", {
+    title: "Profile | Nightout",
+    user: req.user.email,
+    friends: req.user.id
+  });
 };
 
 exports.get_logout = function(req, res) {
-  res.send("NOT IMPLEMENTED: USER LOGOUT");
-  //   req.logout();
-  //   res.redirect("/");
+  req.logout();
+  res.redirect("/");
 };

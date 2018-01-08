@@ -45,11 +45,21 @@ main {
   li {
     display: flex;
     align-items: center;
+    .business-image {
+      height: 100px;
+      margin-right: 20px;
+    }
     .business {
       font-size: 20px;
       margin-right: 20px;
     }
     .description {
+      margin-right: 20px;
+    }
+    .attending {
+      margin-right: 20px;
+    }
+    .number {
       margin-right: auto;
     }
   }

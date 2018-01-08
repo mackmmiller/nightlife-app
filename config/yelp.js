@@ -15,7 +15,8 @@ module.exports = function(req, res, location) {
       res.render("results", {
         title: "Location Results | Nightout",
         location: location,
-        businesses: response.jsonBody.businesses
+        businesses: response.jsonBody.businesses,
+        user: req.user ? req.user.email : null
       });
     })
     .catch(e => {

@@ -16,14 +16,11 @@ var helmet = require("helmet");
 var configDB = require("./config/database.js");
 
 // Configure the Database =====================================================
-mongoose.connect(configDB.url, {
-  useMongoClient: true,
-  user: configDB.user,
-  pass: configDB.pass
-});
-mongoose.Promise = global.Promise;
-var db = mongoose.connection;
-db.on("error", console.error.bind(console, "MongoDB connection error:"));
+mongoose.connect("mongodb://admin:admin@ds133597.mlab.com:33597/nl-app");
+mongoose.connection.on(
+  "error",
+  console.error.bind(console, "MongoDB connection error:")
+);
 
 require("./config/passport")(passport);
 
@@ -57,7 +54,7 @@ app.use(compression());
 app.use(express.static(path.join(__dirname, "public")));
 
 // Required for Passport
-app.use(session({ secret: "scrubs", resave: false, saveUninitialized: true }));
+app.use(session({ secret: "scrubs", resave: true, saveUninitialized: true }));
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
@@ -75,7 +72,6 @@ app.use(function(req, res, next) {
 // error handler
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development
-  console.log(err);
   res.locals.message = err.message;
   res.locals.error = req.app.get("env") === "development" ? err : {};
 

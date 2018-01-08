@@ -31,10 +31,17 @@ main {
   .businesses-ul li {
     display: flex;
     align-items: center; }
+    .businesses-ul li .business-image {
+      height: 100px;
+      margin-right: 20px; }
     .businesses-ul li .business {
       font-size: 20px;
       margin-right: 20px; }
     .businesses-ul li .description {
+      margin-right: 20px; }
+    .businesses-ul li .attending {
+      margin-right: 20px; }
+    .businesses-ul li .number {
       margin-right: auto; }
 
 /* Nav Styling */

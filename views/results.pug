@@ -5,12 +5,15 @@ block content
         h1 Showing results for #{location}
         ul.businesses-ul
             each business in businesses
-                li 
+                li
+                    img.business-image(src=business.image_url)
                     h2.business #{business.name}:
-                    p.description Description blah blah blah blah
-                    button 0 Going
+                    p.description Description
+                    h3.attending Attending:
+                    p.number Number of patrons attending
+                    input(class="choice" type='submit' data-location=business.id value="I'm going")
                 hr
             else
                 li No business were found near your location.
 block script    
-    script(type='text/javascript' src='javascripts/results.js')
+    script(type='text/javascript' src='../javascripts/results.js')

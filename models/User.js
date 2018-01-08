@@ -7,12 +7,9 @@ var bcrypt = require("bcrypt-nodejs");
 
 // Create the schema for the User database
 var UserSchema = new Schema({
-  name: { type: String, required: true, unique: true },
-  password: { type: String, required: true }
-});
-
-UserSchema.virtual("url").get(function() {
-  return "/users/profiles/" + this._id;
+  email: { type: String, required: true, unique: true },
+  password: { type: String, required: true },
+  attendingTonight: { type: Array }
 });
 
 // Methods ====================================================================
