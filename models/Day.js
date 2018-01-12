@@ -1,13 +1,19 @@
 var mongoose = require("mongoose");
-var moment = require("moment");
 var Schema = mongoose.Schema;
 
-var today = moment().format("MMMM Do YYYY");
+var VenueSchema = new Schema({
+  name: { type: String, required: true },
+  attending: { type: Number, required: true }
+});
 
 var DaySchema = new Schema({
-  date: { type: String, default: today, required: true, unique: true },
-  attending: {
-    location: { type: String, default: Date.now, required: true },
-    totalAttending: { type: number, required: true }
-  }
+  date: { type: String, required: true, unique: true },
+  venues: [VenueSchema]
 });
+
+// Methods ====================================================================
+DaySchema.methods.attendLocation = function(location) {
+  console.log("attendLocation called", location);
+};
+
+module.exports = mongoose.model("Day", DaySchema);

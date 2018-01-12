@@ -1,5 +1,5 @@
 var express = require("express");
-var User = require("../models/User");
+var dayController = require("../controllers/dayController");
 var yelp = require("../config/yelp");
 var router = express.Router();
 
@@ -21,9 +21,8 @@ router.get("/results/:location", function(req, res, next) {
   yelp(req, res, req.params.location);
 });
 
-router.post("/results/:location/attend", function(req, res, next) {
-  console.log(req);
-  res.send("Submitted");
-});
+router.post("/api/attend", dayController.post_attend);
+
+router.get("/api/attend/:location", dayController.get_attendance);
 
 module.exports = router;
